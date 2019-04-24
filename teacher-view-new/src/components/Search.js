@@ -91,7 +91,7 @@ class Search extends  Component  {
 
 
     return (
-      <div >
+      <div className="SearchHeight" >
          
            
            
@@ -102,30 +102,33 @@ class Search extends  Component  {
 
           
             
-              <input type="text" id="myInput" style={{fontSize: '5vw'}}
+              <input type="text" id="myInput" style={{fontSize: '2vh'}}
           ref={input => this.search = input}
           onChange={this.myFunction} placeholder="Search for names.."/>
               <table className='fontSize' >
-              <tr>
-                <th
-                  onClick={ this.clickSortByName}
-                  >Student ↓</th>
-                
-                
-                
-                <th 
-                 onClick={ this.clickSortByGrade}
-                 >Score ↓</th>
-              </tr>
-               
+              <thead> 
+                <tr>
+                  <th
+                    onClick={ this.clickSortByName}
+                    >Student ↓</th>
+                  
+                  
+                  
+                  <th 
+                  onClick={ this.clickSortByGrade}
+                  >Score ↓</th>
+                </tr>
+              </thead>
+               <tbody> 
 
                 {this.state.searchList.map((student,index)=>
-                     <tr>
+                     <tr key={index}a>
                       <td key={index}>{student[0]}   </td>
                       <td style={{textAlign: 'center'}}>{student[1]}</td>
                    </tr>
                 )
               }
+              </tbody>
 
 
                

@@ -1,10 +1,11 @@
-'use strict'
+ 
 
 
 import React, { Component } from 'react';
  
 import './App.css';
 import Search from './components/Search'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import postData from './components/teacherViewJson.json'
  
@@ -33,7 +34,7 @@ componentDidMount(){
         <Search/>
            
          
-         
+        <Footer/>
          
 
       </div>
