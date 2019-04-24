@@ -5,7 +5,7 @@ import React, { Component } from 'react';
  
 import './App.css';
 import Search from './components/Search'
-import { strict } from 'assert';
+import Header from './components/Header'
 import postData from './components/teacherViewJson.json'
  
 
@@ -28,7 +28,8 @@ componentDidMount(){
 
     return (
       <div className="App">
-         
+        <Header/> 
+
         <Search/>
            
          
