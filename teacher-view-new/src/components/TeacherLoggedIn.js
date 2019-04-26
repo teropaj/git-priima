@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/Header.css'
+import './css/TeacherLoggedIn.css'
 const jsonFile = require('jsonfile')
 const fileName = './teacherViewJson.json'
 
@@ -10,17 +10,24 @@ const fileName = './teacherViewJson.json'
 
 class TeacherLoggedIn extends Component {
    
+  constructor(props){
+    super(props)
+    this.handleClick=this.handleClick.bind(this)
+  }
+  
+  
+  
   componentDidMount(){
     //const jsonFile = require('jsonfile')
     //const fileName = './teacherViewJson.json'
 
-    const jsonData = jsonFile.readFileSync(fileName);
+    // const jsonData = jsonFile.readFileSync(fileName);
 
-    jsonData = jsonFile.readFileSync(fileName);
+    // jsonData = jsonFile.readFileSync(fileName);
 
-    let lenght=Object.getOwnPropertyNames(jsonData.groupList).length
-    for (let i=0;i<lenght-1;i++){
-      console.dir(i+' '+jsonData.groupList[i].groupId)
+    // let lenght=Object.getOwnPropertyNames(jsonData.groupList).length
+    // for (let i=0;i<lenght-1;i++){
+    //   console.dir(i+' '+jsonData.groupList[i].groupId)
     }
 
 
@@ -30,10 +37,10 @@ class TeacherLoggedIn extends Component {
 
 
 
-     }
+      
   
 
-  useXMLHttpRequest(){    //works only on server
+  functioinuseXMLHttpRequest(){    //works only on server
     console.log('Teacher')
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -45,15 +52,26 @@ class TeacherLoggedIn extends Component {
     xhttp.open("GET", "./teacherViewJson.json", true);
     xhttp.send();
   }
+  handleClick(e) {console.log(e)
+    this.props.component(e.target.id)}
+
+  
   
   render() {
      
     return (
-      <div className="header" >
+      <div className="TeacherHeight" >
           
-         <ul> 
+         <ul className="listType"> 
           {this.props.groups.map((group,index)=>
-           <li key={index}>{group}</li>
+           <li 
+              key={index} >
+               
+           <button onClick={this.handleClick}
+                  //{this.props.component(index)}
+                  id={index}
+                  >{group}</button>
+           </li>
           )}
         </ul>
       </div>

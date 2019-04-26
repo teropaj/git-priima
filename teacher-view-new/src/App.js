@@ -15,10 +15,13 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.component=1
+    this.state={component:2}
+    this.component=2  //1=Search component else Teacher logged in
     //this.jsonParsed= this.jsonParsed=JSON.parse('{"joo":"jee"}');
      //this.jsonParsed=JSON.parse(jsonTest)
+     this.callback=this.callback.bind(this)
   }
+   
 
 componentDidMount(){
    //this.jsonParsed=JSON.parse(jsonFile);
@@ -40,8 +43,12 @@ groups(data){
   }
   let value=groups.toString
   console.log('list ',typeof (value),' ',groups)
-  return string
+  return groups
 }
+
+  callback=(dataFromChild)=> {this.setState({component:(this.state.component===1) ? 2:1})
+              console.log(dataFromChild)
+  }
 
 
   
@@ -56,12 +63,17 @@ groups(data){
       <div className="App">
         <Header/> 
 
-        {(this.component===1) ? 
+        {(this.state.component===1) ? 
             <Search/> : 
             <TeacherLoggedIn 
               groups=
-                {[1,2,3,4]}/>}
-              <p>json {this.groups(jsonFile)}</p>
+                {this.groups(jsonFile)}
+              component=
+                {this.callback}
+                
+              testi={'joo'}/>
+        }
+               
          
          
         <Footer/>
