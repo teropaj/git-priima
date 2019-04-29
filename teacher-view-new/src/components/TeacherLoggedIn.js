@@ -53,7 +53,8 @@ class TeacherLoggedIn extends Component {
     xhttp.send();
   }
   handleClick(e) {console.log(e)
-    this.props.component(e.target.id)}
+    this.props.component(e.target.id)
+    this.props.headerFooterOff(false)}
 
   
   
@@ -67,9 +68,9 @@ class TeacherLoggedIn extends Component {
            <li 
               key={index} >
                
-           <button onClick={this.handleClick}
+           <button style={{fontSize: '5vh'}} onClick={this.handleClick}
                   //{this.props.component(index)}
-                  id={index}
+                  id={index} 
                   >{group}</button>
            </li>
           )}

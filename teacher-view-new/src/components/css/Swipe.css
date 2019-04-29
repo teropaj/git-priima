@@ -5,6 +5,7 @@ p font-size:2vw;
     text-align: center;
     height: 20vh;
     
+    width: 100%
   }
 #pane1 {background-color: yellow;width:100%}
 #pane2 {background-color: green;width:100%}

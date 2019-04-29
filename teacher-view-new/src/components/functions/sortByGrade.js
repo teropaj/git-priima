@@ -9,8 +9,8 @@ export default function sortByGrade (array) {
 
         let nameA,nameB
        
-             nameA = a[1]; // ignore upper and lowercase
-             nameB = b[1]; // ignore upper and lowercase
+             nameA = a[2]; // ignore upper and lowercase
+             nameB = b[2]; // ignore upper and lowercase
        
         
    if (nameA < nameB) {

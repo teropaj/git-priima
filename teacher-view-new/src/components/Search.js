@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import sortByName from './functions/sortByName'
 import sortByGrade from './functions/sortByGrade'
 import Swipe from './Swipe'
+import SearchStudents from './SearchStudents.js'
  
 import './css/search.css';
 
@@ -19,51 +20,24 @@ class Search extends  Component  {
 
   //sortByName(this.students)   //sort students
     this.state = {orderByScore: false,
-                 students:  this.students,
-                 searchList: this.students 
+                 students:  this.props.listOfStudents,
+                 searchList: this.props.listOfStudents
 
                           };
 
-    this.myFunction = this.myFunction.bind(this);
+     
     this.clickSortByName = this.clickSortByName.bind(this);
     this.clickSortByGrade = this.clickSortByGrade.bind(this);
+    this.callbackStudentSearch = this.callbackStudentSearch.bind(this)
      
   }
+  componentDidMount(){console.log('test '+this.props.listOfStudents)}
 
   
 
     
 
-
-  myFunction() {
-     
-    console.log(this.search.value);
-    // Declare variables
-     var input, filter, ul, li, a, i, txtValue;
-     input = this.search.value;
-     filter = input.toUpperCase();
-     ul = document.getElementById("myUL");
-    //  li = ul.getElementsByTagName('td');
-    //  console.log(li[0].getElementsByTagName("li"))
-     let searchListHelper=[]
-    console.log(this.state.students)
-    //Loop through all list items 
-     for (i = 0; i < this.state.students.length; i++) {
-      let student=this.state.students[i]
-      console.log(student,filter,
-      student[0].toLocaleUpperCase().indexOf(filter))
-
-      if (student[0].toLocaleUpperCase().indexOf(filter)>-1) searchListHelper.push(student)
-      // console.log(a)
-      // txtValue = a.textContent || a.innerText;
-      // if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      //    li[i].style.display = "";
-      // } else {
-      //    li[i].style.display = "none";
-      //   }
-    }
-    this.setState({searchList:searchListHelper})
-  }
+ 
   clickSortByName(e) {
      
     console.log('state ',this.state.orderByScore)
@@ -79,6 +53,12 @@ class Search extends  Component  {
   clickSortByGrade(e){
     let searchListHelper=sortByGrade(this.state.searchList);
     this.setState({students: searchListHelper})}
+
+
+  //with SearchStudent component
+  callbackStudentSearch(b){
+    this.setState({searchList: b})
+  }
   
   render() {
 
@@ -88,7 +68,7 @@ class Search extends  Component  {
      
 
 
-
+    console.table('render '+this.state.searchList)
 
     return (
       <div className="SearchHeight" >
@@ -98,13 +78,13 @@ class Search extends  Component  {
          <div className="fontSize">
            
         </div>
+              <SearchStudents students={this.state.students}
+                          callback={this.callbackStudentSearch}
+              />
               <Swipe panes={this.state.searchList}/>
 
           
-            
-              <input type="text" id="myInput" style={{fontSize: '2vh'}}
-          ref={input => this.search = input}
-          onChange={this.myFunction} placeholder="Search for names.."/>
+             
               <table className='fontSize' >
               <thead> 
                 <tr>
@@ -124,7 +104,7 @@ class Search extends  Component  {
                 {this.state.searchList.map((student,index)=>
                      <tr key={index}a>
                       <td key={index}>{student[0]}   </td>
-                      <td style={{textAlign: 'center'}}>{student[1]}</td>
+                      <td style={{textAlign: 'center'}}>{student[2]}</td>
                    </tr>
                 )
               }
