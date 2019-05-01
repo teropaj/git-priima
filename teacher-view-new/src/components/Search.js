@@ -3,6 +3,7 @@ import sortByName from './functions/sortByName'
 import sortByGrade from './functions/sortByGrade'
 import Swipe from './Swipe'
 import SearchStudents from './SearchStudents.js'
+import ListStudents from './ListStudents'
  
 import './css/search.css';
 
@@ -11,12 +12,7 @@ class Search extends  Component  {
   constructor(props) {
     super(props);
     this.orderByScore=true
-    this.students= [ 
-                    ['Billy',12],
-                    ['Cristina',7],
-                    ['Adele',6],
-                    ['Alana',20]
-  ]
+     
 
   //sortByName(this.students)   //sort students
     this.state = {orderByScore: false,
@@ -78,43 +74,17 @@ class Search extends  Component  {
          <div className="fontSize">
            
         </div>
-              <SearchStudents students={this.state.students}
-                          callback={this.callbackStudentSearch}
-              />
+               
+              
               <Swipe panes={this.state.searchList}/>
 
+              <SearchStudents students={this.state.students}
+                          callback={this.callbackStudentSearch}/>
+
           
-             
-              <table className='fontSize' >
-              <thead> 
-                <tr>
-                  <th
-                    onClick={ this.clickSortByName}
-                    >Student ↓</th>
-                  
-                  
-                  
-                  <th 
-                  onClick={ this.clickSortByGrade}
-                  >Score ↓</th>
-                </tr>
-              </thead>
-               <tbody> 
-
-                {this.state.searchList.map((student,index)=>
-                     <tr key={index}a>
-                      <td key={index}>{student[0]}   </td>
-                      <td style={{textAlign: 'center'}}>{student[2]}</td>
-                   </tr>
-                )
-              }
-              </tbody>
-
+             <ListStudents searchList={this.state.searchList}/>
 
                
-
-              </table>
-                
           
          
            
