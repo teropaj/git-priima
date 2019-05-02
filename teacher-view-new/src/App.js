@@ -7,7 +7,7 @@ import './App.css';
 import Search from './components/Search'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import TeacherLoggedIn from './components/TeacherLoggedIn'
+import Section from './components/Section'
 import jsonFile from './components/teacherViewJson.json'
 //import jsonTest from './components/jsonTest.json' 
 
@@ -92,7 +92,7 @@ groups(data){
         {(this.state.component===1) ? 
             <Search listOfStudents={this.ListNamesOfGroup(this.numberOfGroup)}
             /> : 
-            <TeacherLoggedIn 
+            <Section
               groups=
                 {this.groups(jsonFile)}
               component=

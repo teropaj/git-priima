@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './css/TeacherLoggedIn.css'
-const jsonFile = require('jsonfile')
-const fileName = './teacherViewJson.json'
-
+// const jsonFile = require('jsonfile')
+// const fileName = './teacherViewJson.json'
+ 
  
 
  
@@ -63,7 +63,10 @@ class TeacherLoggedIn extends Component {
     return (
       <div className="TeacherHeight" >
           
-         <ul className="listType"> 
+       
+
+
+         <ul className="listType flex-container"> 
           {this.props.groups.map((group,index)=>
            <li 
               key={index} >
@@ -75,6 +78,7 @@ class TeacherLoggedIn extends Component {
            </li>
           )}
         </ul>
+        
       </div>
     );
   }

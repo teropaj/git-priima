@@ -1,3 +1,9 @@
 .TeacherHeight {height:  48vh;}
 
 ul.listType {list-style-type:none}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+     
+  }
