@@ -24,6 +24,7 @@ class TeacherLoggedIn extends Component {
     this.showStudents=this.showStudents.bind(this)
     this.makeListOfNamesOfStudents=this.makeListOfNamesOfStudents.bind(this)
     this.callbackStudentSearch=this.callbackStudentSearch.bind(this)
+    this.toSearch=""
   }
   
   
@@ -92,16 +93,20 @@ class TeacherLoggedIn extends Component {
   }
   makeListOfNamesOfStudents(){
     let names=[]
-    for (let i in this.props.students){
-      names.push(i.name)
+    for (let i in this.state.validStudents){
+      console.log(i.name)
+      names.push(this.state.validStudents[i])
     }
+     
+    
     return names
   }
   callbackStudentSearch(b){
     console.log(b)
     this.setState({searchList: b})
   }
-  
+   
+   
   render() {
      
     return (
@@ -122,8 +127,10 @@ class TeacherLoggedIn extends Component {
            </li>
           )}
         </ul>
-        <SearchStudents students={this.makeListOfNamesOfStudents}
-                          callback={this.callbackStudentSearch}/>
+        <SearchStudents students={this.state.validStudents}
+                          callback={this.callbackStudentSearch}
+                          jee={3}
+                          />
 
 
 
@@ -131,6 +138,7 @@ class TeacherLoggedIn extends Component {
           <ListStudents searchList={this.state.searchList}/> :
           ""
         }
+        <button onClick={this.makeListOfNamesOfStudents()}>joo</button>
         
       </div>
     );

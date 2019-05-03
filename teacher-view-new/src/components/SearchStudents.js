@@ -11,6 +11,7 @@ export default class SearchStudents extends Component {
     
 
     myFunction(e) {
+        console.log('props ',this.state.students)
         console.log('nimi ',e)
         console.log('e from myFunction '+e) 
          
@@ -20,6 +21,7 @@ export default class SearchStudents extends Component {
          input = document.getElementById('myInput').value  //input user writes
          filter = input.toLocaleUpperCase();
          
+         console.log(filter)
          let searchListHelper=[]
 //        console.log(this.state.students)
         //Loop through all list items 
@@ -32,14 +34,14 @@ export default class SearchStudents extends Component {
             return size;
         };
           let lenght=lenghtOfObject(this.state.students)
-          console.log('lenght ',lenght)
+          console.log('35 lenght ',lenght)
          for (let i = 0; i < lenght; i++) {
-          let student=this.props.students[i]
+          let student=this.state.students[i]
           //console.log('student ***'+student+' '+i)
-          console.log(`studet ${student}, filter ${filter} ,
-          ${student[0].toLocaleUpperCase().indexOf(filter)}`)
+          console.log(`student ${student.name}, filter ${filter} ,
+          ${student.name.toLocaleUpperCase().indexOf(filter)}`)
     
-          if (student[0].toLocaleUpperCase().indexOf(filter)>-1) {searchListHelper.push(student)
+          if (student.name.toLocaleUpperCase().indexOf(filter)>-1) {searchListHelper.push(student)
             console.log('HELPER '+searchListHelper)}
           // console.log(a)
           // txtValue = a.textContent || a.innerText;
