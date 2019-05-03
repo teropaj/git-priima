@@ -5,12 +5,15 @@ export default function sortByGrade (array) {
     
    array.sort(function(a, b) {
 
+
+      console.log(a,b)
+
      
 
         let nameA,nameB
        
-             nameA = a[2]; // ignore upper and lowercase
-             nameB = b[2]; // ignore upper and lowercase
+             nameA = a.status; // ignore upper and lowercase
+             nameB = b.status; // ignore upper and lowercase
        
         
    if (nameA < nameB) {

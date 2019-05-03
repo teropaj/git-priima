@@ -4,6 +4,9 @@ import sortByName from './functions/sortByName'
 import sortByGrade from './functions/sortByGrade'
 
 export default class ListStudents extends Component {
+
+
+
   render() {
     return (
       <div>
@@ -25,8 +28,8 @@ export default class ListStudents extends Component {
 
                 {this.props.searchList.map((student,index)=>
                      <tr key={index}a>
-                      <td key={index}>{student[0]}   </td>
-                      <td style={{textAlign: 'center'}}>{student[2]}</td>
+                      <td key={index}>{student.name}   </td>
+                      <td style={{textAlign: 'center'}}>{student.status}</td>
                    </tr>
                 )
               }

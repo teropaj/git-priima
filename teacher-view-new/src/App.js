@@ -23,6 +23,7 @@ class App extends Component {
     this.footerComponentOn=this.headerComponentOn=true
      this.callback=this.callback.bind(this)
      this.HeaderFooterTurnOff=this.HeaderFooterTurnOff.bind(this)
+     this.ListAllStudents=this.ListAllStudents.bind(this)
   }
    
 
@@ -32,6 +33,8 @@ componentDidMount(){
    //console.log(this.jsonParsed)
    //console.log('jsontest ',jsonTest.joo)
    this.ListNamesOfGroup(0)
+   this.ListAllStudents()
+    
   
 } 
 groups(data){
@@ -64,13 +67,58 @@ groups(data){
       let id=student.id
       let status=student.status
 
-      console.dir(i+' '+name)
+      //console.dir(i+' '+name)
       students.push( [name,id,status])
 
     }
     return students
 
   }
+   ListAllStudents(){
+     console.log('ListAllStudents')
+     let students=[]
+     //let lenghtOfGroups=Object.getOwnPropertyNames(jsonFile.groupList[groupNumber].studentList).length
+     for (let i in jsonFile.groupList){
+        
+       console.log(i,'  ',students[i])
+       
+      for(let j in jsonFile.groupList[i]){
+        let group=jsonFile.groupList[i].groupId
+        console.log(group)
+        //console.log(j)
+        for(let k in jsonFile.groupList[i].studentList){
+          //let helper=jsonFile.groupList[i].studentList[j]
+
+          //students[i][k]=[helper.name,helper.Id,helper.status]
+          //console.log('i = ',i,'j = ',j,'  ',students[i][k])
+             
+          let name=jsonFile.groupList[i].studentList[k].name
+          let id=jsonFile.groupList[i].studentList[k].Id
+          let status=jsonFile.groupList[i].studentList[k].status
+          students.push({group:group,
+                         name:name,
+                         id:id,
+                        status:status})
+          // helper.group=group
+          // students.push(helper)
+           
+           
+        }
+      }
+     
+    } 
+    for (let i of students){
+    console.log(i)}
+    return students
+   }
+
+
+
+
+
+
+
+
   HeaderFooterTurnOff(onOff) {
     this.headerComponentOn=this.footerComponentOn=onOff
   }
@@ -98,14 +146,16 @@ groups(data){
               component=
                 {this.callback}
                 
-              headerFooterOff={this.HeaderFooterTurnOff}/>
+              headerFooterOff={this.HeaderFooterTurnOff}
+              
+              students={this.ListAllStudents(jsonFile)}/>
         }
                
          
          
                {(this.headerComponentOn===true) ? <Footer/>:""}
-         
-
+              
+              <button onClick={this.ListAllStudents}>joo</button>
       </div>
     );
   }
