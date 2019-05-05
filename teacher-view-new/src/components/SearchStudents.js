@@ -6,18 +6,18 @@ export default class SearchStudents extends Component {
   constructor(props) {
     super(props);
     this.myFunction=this.myFunction.bind(this)
-    this.state={students:this.props.students}
+    
   }
     
 
     myFunction(e) {
-        console.log('props ',this.state.students)
+         
         console.log('nimi ',e)
         console.log('e from myFunction '+e) 
          
         //console.log('from myFunction '+this.search.value);
         // Declare variables
-         var input, filter, ul, li, a, i, txtValue;
+         var input, filter 
          input = document.getElementById('myInput').value  //input user writes
          filter = input.toLocaleUpperCase();
          
@@ -25,7 +25,7 @@ export default class SearchStudents extends Component {
          let searchListHelper=[]
 //        console.log(this.state.students)
         //Loop through all list items 
-          let students=this.state.students
+          let students=this.props.students
           let lenghtOfObject= function(students) {
             var size = 0, key;
             for (key in students) {
@@ -33,16 +33,22 @@ export default class SearchStudents extends Component {
             }
             return size;
         };
-          let lenght=lenghtOfObject(this.state.students)
-          console.log('35 lenght ',lenght)
+          let lenght=lenghtOfObject(this.props.students)
+          console.log(students)
+          //console.log('35 lenght ',lenght)
          for (let i = 0; i < lenght; i++) {
-          let student=this.state.students[i]
+          let student=this.props.students[i]
           //console.log('student ***'+student+' '+i)
-          console.log(`student ${student.name}, filter ${filter} ,
-          ${student.name.toLocaleUpperCase().indexOf(filter)}`)
+          //  console.log(`student ${student.name}, filter ${filter} ,
+          // ${student.name.toLocaleUpperCase().indexOf(filter)}`)
     
           if (student.name.toLocaleUpperCase().indexOf(filter)>-1) {searchListHelper.push(student)
-            console.log('HELPER '+searchListHelper)}
+            console.log(`student ${student.name}, filter ${filter} ,
+            ${student.name.toLocaleUpperCase().indexOf(filter)} i=${i}`)
+               
+              }
+            //console.log('HELPER '+searchListHelper)
+            
           // console.log(a)
           // txtValue = a.textContent || a.innerText;
           // if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -54,6 +60,7 @@ export default class SearchStudents extends Component {
         //console.log('SEARCHLIST '+this.state.searchList)
         console.log('searchlisthelper ',searchListHelper)
         this.props.callback(searchListHelper)
+        
       }
         
 

@@ -103,7 +103,13 @@ class TeacherLoggedIn extends Component {
   }
   callbackStudentSearch(b){
     console.log(b)
+     
     this.setState({searchList: b})
+  }
+  valid(){for (let i in this.state.validStudents){
+    console.log(this.state.validStudents[i])
+  }
+  
   }
    
    
@@ -129,7 +135,7 @@ class TeacherLoggedIn extends Component {
         </ul>
         <SearchStudents students={this.state.validStudents}
                           callback={this.callbackStudentSearch}
-                          jee={3}
+                           
                           />
 
 
@@ -138,7 +144,7 @@ class TeacherLoggedIn extends Component {
           <ListStudents searchList={this.state.searchList}/> :
           ""
         }
-        <button onClick={this.makeListOfNamesOfStudents()}>joo</button>
+        <button onClick={this.valid}>valid</button>
         
       </div>
     );

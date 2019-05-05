@@ -32,7 +32,7 @@ componentDidMount(){
   // console.log(this.jsonParsed)
    //console.log(this.jsonParsed)
    //console.log('jsontest ',jsonTest.joo)
-   this.ListNamesOfGroup(0)
+   //this.ListNamesOfGroup(0)
    this.ListAllStudents()
     
   
@@ -74,42 +74,38 @@ groups(data){
     return students
 
   }
-   ListAllStudents(){
-     console.log('ListAllStudents')
-     let students=[]
-     //let lenghtOfGroups=Object.getOwnPropertyNames(jsonFile.groupList[groupNumber].studentList).length
-     for (let i in jsonFile.groupList){
-        
-       console.log(i,'  ',students[i])
-       
-      for(let j in jsonFile.groupList[i]){
-        let group=jsonFile.groupList[i].groupId
-        console.log(group)
-        //console.log(j)
-        for(let k in jsonFile.groupList[i].studentList){
-          //let helper=jsonFile.groupList[i].studentList[j]
-
-          //students[i][k]=[helper.name,helper.Id,helper.status]
-          //console.log('i = ',i,'j = ',j,'  ',students[i][k])
-             
-          let name=jsonFile.groupList[i].studentList[k].name
-          let id=jsonFile.groupList[i].studentList[k].Id
-          let status=jsonFile.groupList[i].studentList[k].status
-          students.push({group:group,
-                         name:name,
-                         id:id,
-                        status:status})
-          // helper.group=group
-          // students.push(helper)
-           
-           
-        }
-      }
+   
+   ListAllStudents(data){
      
-    } 
-    for (let i of students){
-    console.log(i)}
-    return students
+  let students=[]
+  let lenght=Object.getOwnPropertyNames(jsonFile.groupList).length
+  for (let i=0;i<lenght-1;i++){
+     
+     
+     
+    //groups.push(help)
+    students[i]=[]
+    
+    let amoutOfStudentGroup=jsonFile.groupList[i].studentList.length
+    
+    for (let student=0;student<amoutOfStudentGroup-1;student++){
+      let helper=jsonFile.groupList[i].studentList[student]
+      let helperGroup=jsonFile.groupList[i].groupId
+      students.push({ group:helperGroup,
+                        name:helper.name,
+                        id:helper.Id,
+                        status:helper.status,
+                      })
+                      debugger
+      //console.log(student,i,students[i][student])
+      
+    }
+
+
+  
+  }
+    
+   return students
    }
 
 
