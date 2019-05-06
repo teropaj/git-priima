@@ -1,9 +1,14 @@
-.TeacherHeight {height:  48vh;}
+.TeacherHeight {height:  48vh;
+border:auto}
 
-ul.listType {list-style-type:none}
+ul.listType {list-style-type:none;
+  margin: auto;
+  padding-left: 0px;
+             }
 
 .flex-container {
     display: flex;
     flex-wrap: nowrap;
-     
+    margin:auto;
+    
   }

@@ -15,7 +15,8 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state={component:2}
+    this.state={component:2,
+                groupList:this.groups(jsonFile)}
     this.numberOfGroup=0
     this.component=2  //1=Search component else Teacher logged in
     //this.jsonParsed= this.jsonParsed=JSON.parse('{"joo":"jee"}');
@@ -23,7 +24,9 @@ class App extends Component {
     this.footerComponentOn=this.headerComponentOn=true
      this.callback=this.callback.bind(this)
      this.HeaderFooterTurnOff=this.HeaderFooterTurnOff.bind(this)
+     this.ChangeGroupList=this.ChangeGroupList.bind(this)
      this.ListAllStudents=this.ListAllStudents.bind(this)
+      
   }
    
 
@@ -96,7 +99,7 @@ groups(data){
                         id:helper.Id,
                         status:helper.status,
                       })
-                      debugger
+                      
       //console.log(student,i,students[i][student])
       
     }
@@ -119,6 +122,14 @@ groups(data){
     this.headerComponentOn=this.footerComponentOn=onOff
   }
 
+  ChangeGroupList(group){
+    this.groupList=[]
+    this.groupList.push(group)
+    debugger
+    console.log(this.groupList)
+    this.setState({groups:this.groupList})
+  }
+
 
 
   
@@ -138,13 +149,15 @@ groups(data){
             /> : 
             <Section
               groups=
-                {this.groups(jsonFile)}
+                {this.state.groupList}
               component=
                 {this.callback}
                 
               headerFooterOff={this.HeaderFooterTurnOff}
               
-              students={this.ListAllStudents(jsonFile)}/>
+              students={this.ListAllStudents(jsonFile)} 
+
+              ChangeGroupList={this.ChangeGroupList}/>
         }
                
          

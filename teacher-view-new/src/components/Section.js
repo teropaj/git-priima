@@ -19,7 +19,8 @@ class TeacherLoggedIn extends Component {
 
     this.state={students:this.props.students,
                 searchList:"",
-                validStudents:this.props.students}
+                validStudents:this.props.students,
+                groups:this.props.groups}
     this.showSearchList=false
     this.showStudents=this.showStudents.bind(this)
     this.makeListOfNamesOfStudents=this.makeListOfNamesOfStudents.bind(this)
@@ -40,6 +41,8 @@ class TeacherLoggedIn extends Component {
     // let lenght=Object.getOwnPropertyNames(jsonData.groupList).length
     // for (let i=0;i<lenght-1;i++){
     //   console.dir(i+' '+jsonData.groupList[i].groupId)
+     
+    console.log(this.state.groups)
     }
     showStudents(studs,group){
       let studentListHelper = []
@@ -52,6 +55,8 @@ class TeacherLoggedIn extends Component {
       this.setState({validStudents:studentListHelper})
       console.log(this.state.searchList)
       this.showSearchList=true
+       
+      console.log(group)
     }
 
 
@@ -79,8 +84,14 @@ class TeacherLoggedIn extends Component {
   handleClick(e) {console.log(e.target.id)
     // this.props.component(e.target.id)
     // this.props.headerFooterOff(false)}
+    let helper=[]
+
     this.showStudents(this.props.students, e.target.id)
-    let studentsOfGroup= []
+    this.props.ChangeGroupList(e.target.id)
+    debugger
+    helper.push(e.target.id)
+    console.log('handleclick ',this.state.groups)
+    this.setState({groups:helper})
 
     // for (let i in this.state.students){ 
     //   console.log('i group ',this.state.students[i].group,e.target.id)
@@ -113,6 +124,7 @@ class TeacherLoggedIn extends Component {
   }
    
    
+   
   render() {
      
     return (
@@ -120,10 +132,10 @@ class TeacherLoggedIn extends Component {
           
        
 
-
-         <ul className="listType flex-container"> 
-          {this.props.groups.map((group,index)=>
-           <li 
+           
+         <ul className="listType flex-container"   > 
+          {this.state.groups.map((group,index)=>
+           <li style={{margin:'auto'}}
               key={index} >
                
            <button style={{fontSize: '5vh'}} onClick={this.handleClick}
@@ -144,7 +156,7 @@ class TeacherLoggedIn extends Component {
           <ListStudents searchList={this.state.searchList}/> :
           ""
         }
-        <button onClick={this.valid}>valid</button>
+        
         
       </div>
     );
