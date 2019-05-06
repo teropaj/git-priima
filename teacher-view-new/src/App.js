@@ -127,7 +127,7 @@ groups(data){
     this.groupList.push(group)
      
     console.log(this.groupList)
-    this.setState({groups:this.groupList})
+    this.setState({groups:group})
   }
 
 

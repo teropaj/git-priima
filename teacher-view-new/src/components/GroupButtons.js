@@ -9,7 +9,7 @@ import './css/TeacherLoggedIn.css'
        <div>
          <button style={{fontSize: '5vh'}} onClick={this.props.handleClick}
                 //{this.props.component(index)}
-                id={this.props.id} 
+                id={this.props.idgroup} 
                 >{this.props.group}</button>
 }
        </div>
@@ -30,6 +30,11 @@ export default class groupButton extends Component {
   
   
   
+  }
+
+  componentDidMount (){
+    debugger
+    console.log(this.props.groups)
   }
 
   handleClick(e) {console.log(e.target.id)
@@ -65,6 +70,7 @@ export default class groupButton extends Component {
 
 
     return (
+
       <div>
           <ul className="listType flex-container"   > 
           {this.props.groups.map((group,index)=>
@@ -82,11 +88,23 @@ export default class groupButton extends Component {
         <ul className="listType flex-container"   > 
           {this.props.groups.map((group,index)=>
            <li style={{margin:'auto'}}
-              key={index} >
+              key={index}a >
                
-            <groupButton handleClick={this.props.handleClick}
+
+            {(this.props.groups.length===1) ?
+            <groupButtons handleClick={this.props.handleClick}
                          group={group}
-                         id={index}/>
+                         id={group}b/>
+                           :
+            <groupButtons handleClick={this.props.handleClick}
+                         group={group}
+                         key={group}c/>
+            }
+
+
+            
+
+
            </li>
           )}
         </ul>
