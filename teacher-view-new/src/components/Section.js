@@ -4,6 +4,7 @@ import './css/TeacherLoggedIn.css'
 // const fileName = './teacherViewJson.json'
 import ListStudents from './ListStudents'
 import SearchStudents from './SearchStudents.js'
+import GroupButtons from './GroupButtons.js'
  
  
  
@@ -88,7 +89,7 @@ class TeacherLoggedIn extends Component {
 
     this.showStudents(this.props.students, e.target.id)
     this.props.ChangeGroupList(e.target.id)
-    debugger
+     
     helper.push(e.target.id)
     console.log('handleclick ',this.state.groups)
     this.setState({groups:helper})
@@ -128,23 +129,16 @@ class TeacherLoggedIn extends Component {
   render() {
      
     return (
+       
+       
       <div className="TeacherHeight" >
+      <GroupButtons groups= {this.state.groups}
+                    handleClick = {this.handleClick}/>
           
        
 
            
-         <ul className="listType flex-container"   > 
-          {this.state.groups.map((group,index)=>
-           <li style={{margin:'auto'}}
-              key={index} >
-               
-           <button style={{fontSize: '5vh'}} onClick={this.handleClick}
-                  //{this.props.component(index)}
-                  id={group} 
-                  >{group}</button>
-           </li>
-          )}
-        </ul>
+         
         <SearchStudents students={this.state.validStudents}
                           callback={this.callbackStudentSearch}
                            
