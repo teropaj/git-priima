@@ -86,6 +86,8 @@ class TeacherLoggedIn extends Component {
     // this.props.component(e.target.id)
     // this.props.headerFooterOff(false)}
     let helper=[]
+    debugger
+    console.log(e.target.id)
 
     this.showStudents(this.props.students, e.target.id)
     this.props.ChangeGroupList(e.target.id)

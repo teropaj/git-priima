@@ -2,16 +2,28 @@ import React, { Component } from 'react'
 import './css/TeacherLoggedIn.css'
 
   
+  function BrowseButton (props) {
+    return <h1> &#8658;</h1>
+  }
  
-  class GroupButtons extends Component {
+  class GroupButton extends Component {
+
+
+     
+
    render() {
      return (
        <div>
+         {(this.props.onlyOneGroup===true) ? 
+         <BrowseButton/>   : ""}
          <button style={{fontSize: '5vh'}} onClick={this.props.handleClick}
                 //{this.props.component(index)}
-                id={this.props.idgroup} 
-                >{this.props.group}</button>
-}
+                id={this.props.id} 
+                key={this.props.key}
+                >{this.props.group}</button> 
+                
+         
+
        </div>
      )
    }
@@ -20,7 +32,7 @@ import './css/TeacherLoggedIn.css'
 
 
 
-export default class groupButton extends Component {
+export default class groupButtons extends Component {
   
    
   constructor(props){
@@ -72,7 +84,7 @@ export default class groupButton extends Component {
     return (
 
       <div>
-          <ul className="listType flex-container"   > 
+         { /*<ul className="listType flex-container"   > 
           {this.props.groups.map((group,index)=>
            <li style={{margin:'auto'}}
               key={index} >
@@ -80,10 +92,11 @@ export default class groupButton extends Component {
            <button style={{fontSize: '5vh'}} onClick={this.props.handleClick}
                   //{this.props.component(index)}
                   id={group} 
+                  key={index}h
                   >{group}</button>
            </li>
-          )}
-        </ul>
+          )*
+        </ul>*/}
 
         <ul className="listType flex-container"   > 
           {this.props.groups.map((group,index)=>
@@ -92,13 +105,16 @@ export default class groupButton extends Component {
                
 
             {(this.props.groups.length===1) ?
-            <groupButtons handleClick={this.props.handleClick}
+            <GroupButton handleClick={this.props.handleClick}
                          group={group}
-                         id={group}b/>
+                         id={group}b
+                         key={index}d
+                         onlyOneGroup={true}/>
                            :
-            <groupButtons handleClick={this.props.handleClick}
+            <GroupButton handleClick={this.props.handleClick}
                          group={group}
-                         key={group}c/>
+                         key={group}c
+                         id={group}/>
             }
 
 
