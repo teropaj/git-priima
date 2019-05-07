@@ -164,7 +164,7 @@ groups(data){
          
                {(this.headerComponentOn===true) ? <Footer/>:""}
               
-              <button onClick={this.ListAllStudents}>joo</button>
+              
       </div>
     );
   }

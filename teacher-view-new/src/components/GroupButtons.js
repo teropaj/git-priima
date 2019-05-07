@@ -3,7 +3,8 @@ import './css/TeacherLoggedIn.css'
 
   
   function BrowseButton (props) {
-    return <h1> &#8658;</h1>
+    return (props.side==='left') ?  <h1 style={{display:'inline'}}> &#8656;</h1> :
+    <h1 style={{display:'inline'}}> &#8658;</h1>
   }
  
   class GroupButton extends Component {
@@ -13,14 +14,16 @@ import './css/TeacherLoggedIn.css'
 
    render() {
      return (
-       <div>
+       <div style={{display:'inline'}}>
          {(this.props.onlyOneGroup===true) ? 
-         <BrowseButton/>   : ""}
+         <BrowseButton side="left"/>   : ""}
          <button style={{fontSize: '5vh'}} onClick={this.props.handleClick}
                 //{this.props.component(index)}
                 id={this.props.id} 
                 key={this.props.key}
                 >{this.props.group}</button> 
+          {(this.props.onlyOneGroup===true) ? 
+         <BrowseButton side="right"/>   : ""}
                 
          
 
@@ -45,7 +48,7 @@ export default class groupButtons extends Component {
   }
 
   componentDidMount (){
-    debugger
+    
     console.log(this.props.groups)
   }
 
@@ -56,7 +59,7 @@ export default class groupButtons extends Component {
 
     this.showStudents(this.props.students, e.target.id)
     this.props.ChangeGroupList(e.target.id)
-    debugger
+    
     helper.push(e.target.id)
     console.log('handleclick ',this.state.groups)
     this.setState({groups:helper})

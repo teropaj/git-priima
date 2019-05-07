@@ -86,7 +86,7 @@ class TeacherLoggedIn extends Component {
     // this.props.component(e.target.id)
     // this.props.headerFooterOff(false)}
     let helper=[]
-    debugger
+     
     console.log(e.target.id)
 
     this.showStudents(this.props.students, e.target.id)
@@ -149,7 +149,9 @@ class TeacherLoggedIn extends Component {
 
 
         {(this.showSearchList===true) ? 
-          <ListStudents searchList={this.state.searchList}/> :
+          <ListStudents searchList={this.state.searchList}
+          callbackStudentSearch={this.callbackStudentSearch}  
+          joo="jee"               /> :
           ""
         }
         

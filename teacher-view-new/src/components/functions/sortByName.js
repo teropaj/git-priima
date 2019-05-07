@@ -9,9 +9,14 @@ export default function sort(array ) {
 
         
              console.log('was here')
-             var nameA = a[0].toUpperCase(); // ignore upper and lowercase
-             var nameB = b[0].toUpperCase(); // ignore upper and lowercase
-        
+             debugger
+             var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+             var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+  
+   
+    debugger
+    console.log('names ',nameA,nameB)
+
    if (nameA < nameB) {
      return -1;
    }
