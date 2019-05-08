@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Section from './components/Section'
 import jsonFile from './components/teacherViewJson.json'
+ 
 //import jsonTest from './components/jsonTest.json' 
 
 class App extends Component {
@@ -142,6 +143,8 @@ groups(data){
 
     return (
       <div className="App">
+
+        
         {(this.headerComponentOn===true) ? <Header/>:""} 
 
         {(this.state.component===1) ? 

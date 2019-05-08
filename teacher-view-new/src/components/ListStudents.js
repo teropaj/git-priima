@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link, DirectLink, Element, Events, scrollSpy, scroller } from 'react-scroll'
 import './css/search.css';
 import sortByName from './functions/sortByName'
 import sortByGrade from './functions/sortByGrade'
@@ -64,13 +65,26 @@ export default class ListStudents extends Component {
               </thead>
                <tbody> 
 
+               <Element className="element" id="scroll-container" style={{
+                    position: 'relative',
+                    height: '25vh',
+                    width: '30vh',
+                    overflow: 'scroll',
+                    //marginBottom: '50px',
+                    //backgroundColor: 'yellow'
+                    
+                    }}> 
+
                 {this.props.searchList.map((student,index)=>
+                       
                      <tr key={index}a>
                       <td key={index}>{student.name}   </td>
                       <td style={{textAlign: 'center'}}>{student.status}</td>
                    </tr>
+                    
                 )
               }
+              </Element>
               </tbody>
 
 
