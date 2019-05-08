@@ -10,7 +10,10 @@ class Footer extends Component {
      
     return (
       <div className="footer" >
-         <h1>footer</h1>
+          
+       <p>  Rautatieläisenkatu 5, 00520 Helsinki | Vaihde puh. 09 1489 0200 | info@bc.fi
+
+Copyright © 2018-2019 Business College Helsinki. All Rights Reserved.</p>
          
       </div>
     );
