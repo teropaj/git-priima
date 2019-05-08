@@ -153,7 +153,7 @@ class TeacherLoggedIn extends Component {
 
         {(this.showSearchList===true) ? 
           <ListStudents searchList={this.state.searchList}
-            
+          callbackStudentSearch={this.callbackStudentSearch}
 
                   /> :
           ""
