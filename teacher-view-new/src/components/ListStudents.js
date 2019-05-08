@@ -50,26 +50,25 @@ export default class ListStudents extends Component {
     return (
       <div>
          
-
-          <table className='fontSize' >
-              <thead> 
-                <tr>
-                  <th
+        <div style=   {{width:'30%',display:'inline'}} > 
+           
+                 
+                  <h3 style={{  display:'inline' }}
                     onClick={ this.clickSortByName}
-                    >Student ↓</th>
+                    >Student ↓</h3>
                   
+                   
                   
-                  
-                  <th 
+                  <h3 style={{ display:'inline' }}
                   onClick={ this.clickSortByGrade}
-                  >Score ↓</th>
-                </tr>
-              </thead>
-          </table>
+                  >Score ↓</h3>
+                  
+                
+          </div>
           <Element className="element" id="scroll-container" style={{
                     position: 'relative',
                     height: '25vh',
-                    width: '120vh',
+                    width: '100%',
                     overflow: 'scroll',
                     margin: 'auto'
                     //marginBottom: '50px',
@@ -84,8 +83,8 @@ export default class ListStudents extends Component {
                 {this.props.searchList.map((student,index)=>
                        
                      <tr key={index}a>
-                      <td key={index}>{student.name}   </td>
-                      <td style={{textAlign: 'center'}}>{student.status}</td>
+                      <td key={index} style={{float:'left'}}>{student.name}   </td>
+                      <td style={{textAlign: 'right'}}>{student.status}</td>
                    </tr>
                     
                 )

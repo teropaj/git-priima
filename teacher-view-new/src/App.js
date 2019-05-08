@@ -88,7 +88,7 @@ groups(data){
      
      
     //groups.push(help)
-    students[i]=[]
+    //students[i]=[]
     
     let amoutOfStudentGroup=jsonFile.groupList[i].studentList.length
     
@@ -147,9 +147,7 @@ groups(data){
         
         {(this.headerComponentOn===true) ? <Header/>:""} 
 
-        {(this.state.component===1) ? 
-            <Search listOfStudents={this.ListNamesOfGroup(this.numberOfGroup)}
-            /> : 
+        
             <Section
               groups=
                 {this.state.groupList}
@@ -161,7 +159,7 @@ groups(data){
               students={this.ListAllStudents(jsonFile)} 
 
               ChangeGroupList={this.ChangeGroupList}/>
-        }
+        
                
          
          

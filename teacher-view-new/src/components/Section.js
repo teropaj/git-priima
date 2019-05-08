@@ -26,6 +26,7 @@ class TeacherLoggedIn extends Component {
     this.showStudents=this.showStudents.bind(this)
     this.makeListOfNamesOfStudents=this.makeListOfNamesOfStudents.bind(this)
     this.callbackStudentSearch=this.callbackStudentSearch.bind(this)
+    this.callbackChangeShowSearchListVar=this.callbackChangeShowSearchListVar.bind(this)
     this.toSearch=""
   }
   
@@ -125,6 +126,8 @@ class TeacherLoggedIn extends Component {
   }
   
   }
+
+  callbackChangeShowSearchListVar () {this.showSearchList=true}
    
    
    
@@ -136,22 +139,23 @@ class TeacherLoggedIn extends Component {
       <div className="TeacherHeight" >
       <GroupButtons groups= {this.state.groups}
                     handleClick = {this.handleClick}/>
-          
+                     
        
 
            
          
         <SearchStudents students={this.state.validStudents}
                           callback={this.callbackStudentSearch}
-                           
+                          callbackChangeShowSearchListVar={this.callbackChangeShowSearchListVar}
                           />
 
 
 
         {(this.showSearchList===true) ? 
           <ListStudents searchList={this.state.searchList}
-          callbackStudentSearch={this.callbackStudentSearch}  
-          joo="jee"               /> :
+            
+
+                  /> :
           ""
         }
         

@@ -26,6 +26,8 @@ export default class SearchStudents extends Component {
 //        console.log(this.state.students)
         //Loop through all list items 
           let students=this.props.students
+          console.log(students)
+          
           let lenghtOfObject= function(students) {
             var size = 0, key;
             for (key in students) {
@@ -45,7 +47,7 @@ export default class SearchStudents extends Component {
           if (student.name.toLocaleUpperCase().indexOf(filter)>-1) {searchListHelper.push(student)
             console.log(`student ${student.name}, filter ${filter} ,
             ${student.name.toLocaleUpperCase().indexOf(filter)} i=${i}`)
-               
+            this.props.callbackChangeShowSearchListVar()
               }
             //console.log('HELPER '+searchListHelper)
             
