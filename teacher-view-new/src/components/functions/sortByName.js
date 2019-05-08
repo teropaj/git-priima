@@ -14,7 +14,7 @@ export default function sort(array ) {
              var nameB = b.name.toUpperCase(); // ignore upper and lowercase
   
    
-    debugger
+     
     console.log('names ',nameA,nameB)
 
    if (nameA < nameB) {

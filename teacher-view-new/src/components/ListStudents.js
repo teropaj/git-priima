@@ -49,6 +49,8 @@ export default class ListStudents extends Component {
   render() {
     return (
       <div>
+         
+
           <table className='fontSize' >
               <thead> 
                 <tr>
@@ -63,18 +65,22 @@ export default class ListStudents extends Component {
                   >Score ↓</th>
                 </tr>
               </thead>
-               <tbody> 
-
-               <Element className="element" id="scroll-container" style={{
+          </table>
+          <Element className="element" id="scroll-container" style={{
                     position: 'relative',
                     height: '25vh',
-                    width: '30vh',
+                    width: '120vh',
                     overflow: 'scroll',
+                    margin: 'auto'
                     //marginBottom: '50px',
                     //backgroundColor: 'yellow'
                     
                     }}> 
 
+          <table className='fontSize' >
+               <tbody> 
+
+                
                 {this.props.searchList.map((student,index)=>
                        
                      <tr key={index}a>
@@ -84,13 +90,14 @@ export default class ListStudents extends Component {
                     
                 )
               }
-              </Element>
+               
               </tbody>
 
 
                
 
               </table>
+              </Element>
 
         
       </div>
