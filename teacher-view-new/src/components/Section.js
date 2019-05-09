@@ -5,6 +5,7 @@ import './css/TeacherLoggedIn.css'
 import ListStudents from './ListStudents'
 import SearchStudents from './SearchStudents.js'
 import GroupButtons from './GroupButtons.js'
+import GroupSwipe from './GroupSwipe.js'
  
  
  
@@ -21,7 +22,8 @@ class TeacherLoggedIn extends Component {
     this.state={students:this.props.students,
                 searchList:"",
                 validStudents:this.props.students,
-                groups:this.props.groups}
+                groups:this.props.groups,
+                validGroups:0}
     this.showSearchList=false
     this.showStudents=this.showStudents.bind(this)
     this.makeListOfNamesOfStudents=this.makeListOfNamesOfStudents.bind(this)
@@ -87,15 +89,23 @@ class TeacherLoggedIn extends Component {
     // this.props.component(e.target.id)
     // this.props.headerFooterOff(false)}
     let helper=[]
-     
-    console.log(e.target.id)
-
+    console.clear()
+    
+    //debugger
+    console.log(e.target)
+    //debugger
     this.showStudents(this.props.students, e.target.id)
     this.props.ChangeGroupList(e.target.id)
      
     helper.push(e.target.id)
     console.log('handleclick ',this.state.groups)
     this.setState({groups:helper})
+    let groupId=this.state.groups.findIndex(value=>value===e.target.id)
+    console.clear()
+    
+    console.log(groupId)
+    
+    this.setState({validGroups:groupId})
 
     // for (let i in this.state.students){ 
     //   console.log('i group ',this.state.students[i].group,e.target.id)
@@ -116,10 +126,10 @@ class TeacherLoggedIn extends Component {
     
     return names
   }
-  callbackStudentSearch(b){
+  callbackStudentSearch(b){  
     console.log(b)
      
-    this.setState({searchList: b})
+    this.setState({searchList: b})  //refresh studentList
   }
   valid(){for (let i in this.state.validStudents){
     console.log(this.state.validStudents[i])
@@ -137,10 +147,15 @@ class TeacherLoggedIn extends Component {
        
        
       <div className="TeacherHeight" >
-      <GroupButtons groups= {this.state.groups}
+
+      {/* {<GroupSwipe groups= {this.state.groups}
+                  handleClick = {this.handleClick}/>  */}
+    
+       <GroupButtons groups= {this.state.groups}
+                     validGroups={this.state.validGroups}
                     handleClick = {this.handleClick}/>
-                     
-       
+                      
+    
 
            
          
