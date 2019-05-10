@@ -15,6 +15,10 @@ export default class ListStudents extends Component {
 
 
   }
+  componenDidMount(){
+    debugger;
+    console.log(this.props.headerFooterOff,'hee')
+    this.props.headerFooterOff(false)}
 
   clickSortByName(e) {
      
@@ -67,7 +71,7 @@ export default class ListStudents extends Component {
           </div>
           <Element className="element" id="scroll-container" style={{
                     position: 'relative',
-                    height: '25vh',
+                    height: '70vh',
                     width: '100%',
                     overflow: 'scroll',
                     margin: 'auto'

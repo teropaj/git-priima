@@ -9,7 +9,7 @@ export default function sort(array ) {
 
         
              console.log('was here')
-             debugger
+             
              var nameA = a.name.toUpperCase(); // ignore upper and lowercase
              var nameB = b.name.toUpperCase(); // ignore upper and lowercase
   

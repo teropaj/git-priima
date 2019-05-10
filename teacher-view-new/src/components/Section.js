@@ -87,7 +87,7 @@ class TeacherLoggedIn extends Component {
   }
   handleClick(e) {console.log(e.target.id)
     // this.props.component(e.target.id)
-    // this.props.headerFooterOff(false)}
+     this.props.headerFooterOff(false)
     let helper=[]
     console.clear()
     
@@ -153,7 +153,8 @@ class TeacherLoggedIn extends Component {
     
        <GroupButtons groups= {this.state.groups}
                      validGroups={this.state.validGroups}
-                    handleClick = {this.handleClick}/>
+                    handleClick = {this.handleClick}
+                    headerFooterOff={this.props.headerFooterOff}/>
                       
     
 
@@ -162,6 +163,7 @@ class TeacherLoggedIn extends Component {
         <SearchStudents students={this.state.validStudents}
                           callback={this.callbackStudentSearch}
                           callbackChangeShowSearchListVar={this.callbackChangeShowSearchListVar}
+                           
                           />
 
 
@@ -169,7 +171,7 @@ class TeacherLoggedIn extends Component {
         {(this.showSearchList===true) ? 
           <ListStudents searchList={this.state.searchList}
           callbackStudentSearch={this.callbackStudentSearch}
-
+          headerFooterOff={this.props.headerFooterOff}
                   /> :
           ""
         }

@@ -8,6 +8,8 @@ export default class SearchStudents extends Component {
     this.myFunction=this.myFunction.bind(this)
     
   }
+  componentDidMount(){//this.props.headerFooterOff(false)
+  }
     
 
     myFunction(e) {
