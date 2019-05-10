@@ -23,7 +23,8 @@ class TeacherLoggedIn extends Component {
                 searchList:"",
                 validStudents:this.props.students,
                 groups:this.props.groups,
-                validGroups:0}
+                validGroups:0,
+                groupsLenght:this.props.groups.length}
     this.showSearchList=false
     this.showStudents=this.showStudents.bind(this)
     this.makeListOfNamesOfStudents=this.makeListOfNamesOfStudents.bind(this)
@@ -99,7 +100,7 @@ class TeacherLoggedIn extends Component {
      
     helper.push(e.target.id)
     console.log('handleclick ',this.state.groups)
-    this.setState({groups:helper})
+    this.setState({groups:helper,groupsLenght:1})
     let groupId=this.state.groups.findIndex(value=>value===e.target.id)
     console.clear()
     
@@ -172,7 +173,8 @@ class TeacherLoggedIn extends Component {
           <ListStudents searchList={this.state.searchList}
           callbackStudentSearch={this.callbackStudentSearch}
           headerFooterOff={this.props.headerFooterOff}
-                  /> :
+          scrollLenght={this.state.groups.length }       
+          test={this.state.groups.length} /> :
           ""
         }
         
