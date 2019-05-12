@@ -2,31 +2,12 @@ import React, { Component } from 'react'
 import './css/TeacherLoggedIn.css'
 
   
-  class BrowseButton  extends Component{
-    
-    
-    
-    
-    render() {
-      return(
-
-      <div style={{display:'inline'}}>
-    
-        {(this.props.side==='left') ?  
-            <h1 style={{display:'inline'}}
-                onClick >
-                &#8656;
-            </h1> :
-            <h1 style={{display:'inline'}}>
-                &#8658;
-            </h1>}
-     </div>
-    )
+  function BrowseButton (props) {
+    return (props.side==='left') ?  <h1 style={{display:'inline'}}> &#8656;</h1> :
+    <h1 style={{display:'inline'}}> &#8658;</h1>
   }
-}
  
   class GroupButton extends Component {
-
 
 
      
@@ -54,14 +35,13 @@ import './css/TeacherLoggedIn.css'
 
 
 
-export default class GroupButtons extends Component {
+export default class groupButtons extends Component {
   
    
   constructor(props){
     super(props)
   
     this.handleClick=this.handleClick.bind(this)
-    
   
   
   
@@ -76,10 +56,8 @@ export default class GroupButtons extends Component {
     // this.props.component(e.target.id)
     // this.props.headerFooterOff(false)}
     let helper=[]
-    console.clear()
-    debugger
-    //this.showStudents(this.props.students, e.target.id)
-    debugger
+
+    this.showStudents(this.props.students, e.target.id)
     this.props.ChangeGroupList(e.target.id)
     
     helper.push(e.target.id)

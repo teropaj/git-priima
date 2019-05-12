@@ -1,4 +1,18 @@
-.header {height:20vh;
-        background-color: yellow;
-        text-align: center;
-        top:0px;}
+
+
+ .App-bc {
+ 
+  width: 50px;
+  float: left;
+ 
+
+
+ }
+p{
+    color: 	rgb(252, 224, 209);
+    font-size: 1em;
+   font-family: "Times New Roman", Times, serif;
+
+    font-weight: 100;
+
+}

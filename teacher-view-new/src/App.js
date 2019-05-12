@@ -17,7 +17,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state={component:2,
-                groupList:this.groups(jsonFile)}  //all groups
+                groupList:this.groups(jsonFile)}
     this.numberOfGroup=0
     this.component=2  //1=Search component else Teacher logged in
     //this.jsonParsed= this.jsonParsed=JSON.parse('{"joo":"jee"}');
@@ -150,7 +150,7 @@ groups(data){
         
             <Section
               groups=
-                {this.state.groupList}  //all groups
+                {this.state.groupList}
               component=
                 {this.callback}
                 

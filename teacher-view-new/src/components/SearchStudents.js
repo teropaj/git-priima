@@ -8,8 +8,6 @@ export default class SearchStudents extends Component {
     this.myFunction=this.myFunction.bind(this)
     
   }
-  componentDidMount(){//this.props.headerFooterOff(false)
-  }
     
 
     myFunction(e) {
@@ -51,17 +49,6 @@ export default class SearchStudents extends Component {
             ${student.name.toLocaleUpperCase().indexOf(filter)} i=${i}`)
             this.props.callbackChangeShowSearchListVar()
               }
-
-          // let idHelper=String.student.id
-          // console.clear()
-          // debugger
-          // console.log(student.id,filter)
-          // debugger
-          // //student-id
-          // if( idHelper.indexOf(filter)>-1){searchListHelper.push(student)
-          
-          // }
-          
             //console.log('HELPER '+searchListHelper)
             
           // console.log(a)
