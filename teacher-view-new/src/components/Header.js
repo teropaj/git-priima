@@ -24,7 +24,7 @@ class Header extends Component {
 
       <div style={style}>
 
-  {this.props.children}
+  
   <img src={bc} className="App-bc" alt="bc" />
 
        <p>PRIIMA</p> 
