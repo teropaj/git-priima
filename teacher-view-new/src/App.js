@@ -9,7 +9,9 @@ import Footer from './components/Footer'
 import Header from './components/Header'
 import Section from './components/Section'
 import jsonFile from './components/teacherViewJson.json'
- 
+import { connect } from "react-redux";
+
+
 //import jsonTest from './components/jsonTest.json' 
 
 class App extends Component {
