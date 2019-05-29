@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './css/TeacherLoggedIn.css'
+import { connect } from "react-redux";
 
   
   function BrowseButton (props) {
@@ -35,7 +36,7 @@ import './css/TeacherLoggedIn.css'
 
 
 
-export default class groupButtons extends Component {
+  class groupButtons extends Component {
   
    
   constructor(props){
@@ -127,8 +128,20 @@ export default class groupButtons extends Component {
            </li>
           )}
         </ul>
-        
+        {this.props.age}
       </div>
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    age: state.age
+  };
+};
+
+
+export default connect(
+  mapStateToProps
+  
+)(groupButtons);
